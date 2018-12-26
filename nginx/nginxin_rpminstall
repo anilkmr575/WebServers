@@ -1,0 +1,56 @@
+###RPM installation
+---Download the rpm package from below link
+http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/
+---Install the downloaded packages using RPM command
+rpm -ivh nginx-1.11.0-1.el7.ngx.x86_64.rpm
+---Default configuration file of Nginx is...
+/etc/nginx/conf.d/default.conf
+---Default Document of Ngnix is...
+/usr/share/nginx/html
+---Default Index file is 
+index.html
+---------Hosting a site in Ngnix-----------
+server {
+    listen       80;
+    #server_name  localhost;
+    #server_name www.websitename.com;
+    #charset koi8-r;
+    #access_log  /var/log/nginx/log/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+    ##All directive and tag goes inside this
+ } --end of main server tag
+  ---------Set Proxy Bypass in Nginx-----------
+ server {
+    listen       80;
+    #server_name  localhost;
+    #server_name www.websitename.com;
+    #charset koi8-r;
+    #access_log  /var/log/nginx/log/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+    ##All directive and tag goes inside this
+    server {
+    listen       80;
+    server_name  www.dotcore.com;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/log/host.access.log  main;
+
+    location / {
+
+        proxy_pass http://localhost:5000/;
+    }
+
+    
+} --end of main server tag
+##systemctl start|restart|reload|stop nginx.service
+
+####Thats it ####
+
