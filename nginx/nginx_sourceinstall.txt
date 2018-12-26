@@ -1,0 +1,42 @@
+##Source installation##
+---Download(stable version) zip file from the nginx.org site.
+---Untar the zip package and go to unzip folder.
+---Run help command, it will show all the configuration parameters.
+./configure --help
+---Run configure command with postfix option to install in custom path
+./configure --prefix=/home/ramki/nginx
+---Run configure command --with-http_ssl_module to install ssl module
+#./configure --with-http_ssl_module
+#make && make install
+---Go to Nginx dir 
+#cd nginx
+---Go to sbin dir
+-- start the service of ngnix
+#./ngnix 
+--stop|relod service of ngnix
+./nginx -s stop --to stop service
+###### Now host the virtual host and proxy by pass############
+----Go to nginx dir and then go to conf directry
+cd /ngnix/conf
+-------------Edit ngnix.conf file------------
+##host the web app and define proxy pass###
+server {
+    server_name  www.dotcore.com;
+
+    location / {
+
+        proxy_pass http://localhost:5000/;
+    }
+} 
+server {
+    listen       80;
+    #server_name  localhost;
+    #server_name www.websitename.com;
+    #charset koi8-r;
+    #access_log  /var/log/nginx/log/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        }
+  }
