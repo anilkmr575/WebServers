@@ -1,0 +1,24 @@
+#configuration of dotnet core/kestrel on centos 7
+--- Install the following packages.
+#yum install deltarpn unzip gettext libcurl-devel openssl-devel libicu libicu-devel -y
+---Import the key from the microsoft .Net
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+----create Yum repo for microsoft dot net core package
+vim dotnetdev.repo
+[Packages-microsoft.com.prod]
+name=packages-microsoft-com-prod
+baseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+------or by ----
+cat > /etc/yum.repos.d/dotnetdev.repo << EOF
+[Packages-microsoft.com.prod]
+name=packages-microsoft-com-prod
+baseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+----------------Now install--------------------------------
+yum install dotnet-sdk-2.1.105
