@@ -2,9 +2,9 @@
 --- Install the following packages.
 #yum install deltarpn unzip gettext libcurl-devel openssl-devel libicu libicu-devel -y
 ---Import the key from the microsoft .Net
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
+#rpm --import https://packages.microsoft.com/keys/microsoft.asc
 ----create Yum repo for microsoft dot net core package
-vim dotnetdev.repo
+#vim dotnetdev.repo
 [Packages-microsoft.com.prod]
 name=packages-microsoft-com-prod
 baseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod
@@ -12,7 +12,7 @@ enabled=1
 gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 ------or by ----
-cat > /etc/yum.repos.d/dotnetdev.repo << EOF
+#cat > /etc/yum.repos.d/dotnetdev.repo << EOF
 [Packages-microsoft.com.prod]
 name=packages-microsoft-com-prod
 baseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod
@@ -20,5 +20,16 @@ enabled=1
 gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
-----------------Now install--------------------------------
-yum install dotnet-sdk-2.1.105
+----------------Now install dotnet core package--------------------------------
+#yum install dotnet-sdk-2.1.105
+----set envirenment variable----------------------
+#echo 'export PATH=$PATH:$HOME/dotnet' > /etc/profile.d/dotnetdev.sh
+#source /etc/profile.d/dotnetdev.sh
+#dotnet --version
+-----------Now creating dotnet core first app----------------
+dotnet new razor -o myapp1 <appname>
+cd myapp1 <appname>
+----------Finally run the app------
+dotnet run
+----It run the app in localhost:5000 url------
+########Thats it###############
