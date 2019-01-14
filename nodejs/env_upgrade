@@ -1,0 +1,13 @@
+###Ugrading the node js version
+###Current NodeJs Version:- First check current nodejs version on your system
+node -v 
+###Clean Cache Forcefully:- Now clean all npm cache from your system forcefully.
+sudo npm cache clean -f 
+###Install n Module:- After cleaning all cache from your system, now install n modules using npm command
+sudo npm install -g n 
+###Install Nodejs – Let’s install or update latest nodejs version on your system using n module.
+sudo n stable 
+###Setup Binary Link – Now link your node binary with latest nodejs installed binary file using following command.
+sudo ln -sf /usr/local/n/versions/node/6.0.0/bin/node /usr/bin/node
+###Check Nodejs Version – Finally recheck your nodejs version. You will find that it showing latest version on your system.
+node -v 
