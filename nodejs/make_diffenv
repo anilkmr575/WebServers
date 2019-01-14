@@ -1,0 +1,10 @@
+#Node.js gets installed from the NodeSource repository which requires the EPEL repository.
+yum -y install epel-release
+yum -y install gcc c++ make
+yum -y install nodejs
+#Check version 
+node -v
+##check npm version(NPM is the package management utility for the JavaScript programming language.)
+npm -v
+##Install Angular CLI
+npm install -g @angular/cli
