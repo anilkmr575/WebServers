@@ -1,3 +1,4 @@
+-------------------------Yum installation----------------------------------------
 #Node.js gets installed from the NodeSource repository which requires the EPEL repository.
 yum -y install epel-release
 yum -y install gcc c++ make
@@ -8,3 +9,29 @@ node -v
 npm -v
 ##Install Angular CLI
 npm install -g @angular/cli
+--------------------------------Source installation--------------------------------
+wget https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz
+#Extract the tar archive you just downloaded into the node directory
+mkdir node
+cd node
+tar xvf node-v*.tar.gz --strip-components=1 -C
+##Next, we'll configure the global prefix of npm, where npm will create symbolic links to installed Node packages, 
+---to somewhere that it's in your default path. We'll set it to /usr/local with this command
+mkdir node/etc
+echo 'prefix=/usr/local' > node/etc/npmrc
+###Now we're ready to move the node and npm binaries our installation location. We'll move it into /opt/node with this command:
+mv node /opt/
+##create symbolic links of the node and npm binaries in your default path. We'll put the links in /usr/local/bin with these commands:
+    sudo ln -s /opt/node/bin/node /usr/local/bin/node
+    sudo ln -s /opt/node/bin/npm /usr/local/bin/npm
+###Note that, by default, /usr/local/bin is excluded from PATH when sudo is used. To change that, open the sudoers file:
+sudo visudo
+###Find the line that specifies Defaults secure_path and add :/usr/local/bin to the end of it.
+Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+node -v
+###Install PM2, process manager for Node.js applications. 
+----PM2 provides an easy way to manage and daemonize applications (run them as a service).
+npm install pm2@latest -g
+##Runing sample js script by PM2
+pm2 start hello.js
+###heres all about source installation.###
