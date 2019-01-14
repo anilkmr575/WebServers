@@ -1,0 +1,15 @@
+#####Node.Js######
+Node.js is a cross-platform, open-source JavaScript library for server-side,
+contrary to previous practice of using JavaScript primarily for client-side scripting by embedding the scripts in a webpage’s HTML
+Node.js provides asynchronous I/O capability out of the box with it’s event-driven architecture.
+
+####-------NPM-----###########
+NPM is the package management utility for the JavaScript programming language i.e. Node.js, Angular
+It provides a command-line client for consuming and distributing the JavaScript modules from the remote registry
+Easiest (most common way) to install npm is installing the Node.js, it has it as the default package manager.
+
+############Angular###########
+Angular is an open-source JavaScript front-end web application framework mainly for developing single-page applications.
+There’s some confusion regarding the name and version of Angular.
+---initially it was started as AngularJS framework (which is still v1), but later on it was completely re-written and released as Angular 2 in September 2016.
+---In March 2017, Angular 2 was renamed as Angular.
