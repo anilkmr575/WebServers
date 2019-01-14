@@ -1,0 +1,33 @@
+#######Manul simple angular application###########
+vi hello.js
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(8080, 'APP_PRIVATE_IP_ADDRESS');
+console.log('Server running at http://APP_PRIVATE_IP_ADDRESS:8080/');
+:wq
+#run the js file
+node hello.js
+###We will use Node Packaged Modules (NPM)
+npm install pm2@latest -g
+pm2 start hello.js
+
+##############host angular application on production server.########
+Download the Angular application package to productin server.
+cd /appfolder
+#run npm install it will install all the required pacage from package.json
+npm install
+##Now run the angular application
+ng serve
+##Above command run the application in defined ip/host and port no.
+
+######################Start a Angular project###############################
+ng new <project-name>
+
+###thats all about anular application deploy and runing
+
+
+
+
+
